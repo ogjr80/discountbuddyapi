@@ -30,12 +30,13 @@ app.use(morgan('dev'));
 app.use(helmet()); 
 
 app.get('/', function(req, res){
-	res.send('please use /api/stores or /api/discounts'); 
+	res.send('please use /api/stores or /api/discounts');
+	//res.renderfile('index.html'); 
 }); 
 
 app.use('/api/stores', stores); 
 app.use('/api/discounts', discounts); 
 
-app.listen(3030, function(){
+app.listen(3020, function(){
 	console.log('app running on port 3030'); 
 })
