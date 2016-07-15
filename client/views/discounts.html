@@ -1,0 +1,36 @@
+<h2 class="sub-header">Discounts</h2> 
+	<div class="table-responsive" ng-init="getDiscounts()"> 
+		<table class="table table-striped"> 
+			<thead> 
+				<tr>
+					<td>#</td>
+					<th>Product Name</th> 
+					<th>Was</th> 
+					<th>Now</th> 
+					<th>Description</th> 
+					<th>expires</th> 
+					<th></th> 
+				</tr> 
+			</thead>
+			<tbody> 
+				<tr ng-repeat="discount in discounts"> 
+					<td>{{discount._id}}</td>
+					<td>{{discount.product_name}}</td>
+					<td>{{discount.was}}</td>
+					<td>{{discount.price}}</td>
+					<td>{{discount.desc}}</td>
+					<td>{{discount.expiresAt}}</td>
+					<td>
+						<a href="#/discounts/details/{{discount._id}}" 
+						class="btn btn-primary">Details</a> 
+						<a href="#/discounts/edit/{{discount._id}}" 
+						class="btn btn-default">Edit</a><button 
+						ng-click="deleteDiscount(discount._id)"
+						class="btn btn-danger">Delete</button>
+					</td>
+				</tr> 
+			</tbody> 
+
+
+
+		
