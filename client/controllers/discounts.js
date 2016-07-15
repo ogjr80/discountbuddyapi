@@ -15,6 +15,7 @@ dbApp.controller('DiscountsController',['$scope','$http','$location','$routePara
 		var id = $routeParams.id; 
 		$http.get('/api/discounts/'+id).success(function(response){
 			$scope.discount = response; 
+			console.log($scope.discount); 
 		})
 	}
 }]); 

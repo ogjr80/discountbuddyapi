@@ -19,7 +19,7 @@ dbApp.config(function($routeProvider){
 	})
 	.when('/discounts/details/:id', {
 		controller: 'DiscountsController', 
-		templateUr: 'views/discount_details.html'
+		templateUrl: 'views/discount_details.html'
 	})
 	.otherwise({
 		redirectTo: '/'

@@ -1,0 +1,29 @@
+<div ng-init="getDiscount()"> 
+	<div class="row"> 
+		<div class="col-md-8">
+			<h3>{{discount.store.name}} {{discount.store.slogan}}</h3>
+			<ul class="list-group">
+				<li class="list-group-item">{{discount.store.address.street}}</li> 
+				<li class="list-group-item">{{discount.store.address.city}}</li> 
+				<li class="list-group-item">{{discount.store.address.suburb}}</li> 
+				<li class="list-group-item">{{discount.store.address.postalcode}}</li>  
+			</ul> 
+		</div> 
+		<div class="col-md-4"> 
+			Discount Created: {{discount.createdAt}}</br> 
+			<h3>Expires: {{discount.expiresAt}}</h3> 
+		</div> 
+	</div>
+<hr> 
+	<div class="row"> 
+		<div class="col-md-12"> 
+			<h4>Discount Info</h4> 
+			<ul class="list-group">
+				<li class="list-group-item">Product: {{discount.product_name}}</li> 
+				<li class="list-group-item">Price: {{discount.price}}</li> 
+				<li class="list-group-item">Was: {{discount.was}}</li> 
+				<li class="list-group-item">Expires: {{discount.expiresAt}}</li>
+			</ul> 
+		</div> 
+	</div>
+</div>
