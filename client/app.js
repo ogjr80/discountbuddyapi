@@ -21,6 +21,14 @@ dbApp.config(function($routeProvider){
 		controller: 'DiscountsController', 
 		templateUrl: 'views/discount_details.html'
 	})
+	.when('/stores/add', {
+		controller: 'StoresController', 
+		templateUrl: 'views/stores_add.html'
+	})
+	.when('/discounts/add',{
+		controller: 'DiscountsController', 
+		templateUrl: 'views/discounts_add.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});

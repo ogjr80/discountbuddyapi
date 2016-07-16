@@ -137,6 +137,7 @@ createdAt
 */
 
 /*
+db.stores.insert(
 {
 		"store_name": "Game", 
 		"slogan": "You are the difference",
@@ -154,9 +155,44 @@ createdAt
 			"postalcode": "1685"
 		}
 	}
+	)
+
+
+db.stores.insert(
+{
+		"store_name": "Checkers", 
+		"slogan": "Everything you want",
+		"company": "Checkers", 
+		"logo_url": "http://somelog.com/checkers.jpg", 
+		"email": "info@checkers.co.za", 
+		"phone": "555-5566", 
+	    "loc" : { "type": "Point", "coordinates": [ -25.7831, 28.2752]},
+        "address" : 
+        {
+			"street" : "main road",
+			"suburb": "Midrand",
+			"city": "Johannesburg",
+			"province": "Gauteng", 
+			"postalcode": "1685"
+		}
+	}
+	)
 */
 
 
+
+/*
+Discounts 
+	name 
+	price
+	was
+	description
+	image_url
+	createdAt
+	expires
+
+
+*/
 
 
 

@@ -17,6 +17,12 @@ dbApp.controller('StoresController',['$scope','$http','$location','$routeParams'
 			$scope.store = response; 
 		})
 	}
+	$scope.addStore = function(){
+		console.log('Posting Stores')
+		$http.post('/api/stores/', $scope.store).success(function(response){
+			window.location.href="/#stores";
+		});
+	}
 }]); 
 
 

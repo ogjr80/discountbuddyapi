@@ -24,13 +24,14 @@ router.get('/:id', function(req,res){
 			res.send(err);
 		}
 		res.json(store);
+		console.log(store);
 	});
 }); 
 
 //Add Store Route
 router.post('/', function(req, res){
-	var data = req.body; 
-	Store.addStore(data, function(err, store){
+	var store = req.body; 
+	Store.addStore(store, function(err, store){
 		if(err){
 			res.send(err);
 		}
