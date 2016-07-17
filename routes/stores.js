@@ -6,15 +6,57 @@ Store = require('../models/store.js');
 
 
 
-//get all stores routes 
+//GEt Routes 
+// -----------------------------------------
+// Retrieve records for all stores in the db 
+
 router.get('/', function(req, res){
-	Store.getStores(function(err, stores){
+
+	//Uses Mongoose schema to run the search (empty conditions)
+	var query = Store.find({}); 
+	query.exec(function(err, stores){
 		if(err){
-			res.send(err); 
+			res.send(err);
 		}
-		res.json(stores);
+		//if no errors are found, it responds with a JSON of all stores
+		res.json(stores); 
 	});
+
 }); 
+
+
+
+//Post Routes 
+//--------------------------------------------
+//Provides methods for saving new stores in the db 
+// router.post('/', function(req, res){
+
+// 	//Creates a new Store based on the Mongoose Schema and the post ody 
+// 	var newstore = new Store(req.body); 
+
+// 	newstore.save(function(err){
+// 		if(err){
+// 			res.send(err);
+// 		}
+// 		res.json(req.body);
+// 	}); 
+// }); 
+
+
+
+
+//Add Store Route
+router.post('/', function(req, res){
+	var store = req.body; 
+	Store.addStore(store, function(err, store){
+		if(err){
+			res.send(err);
+		}
+		res.json(store);
+	});
+});
+
+
 
 
 //Get Single Store
@@ -28,16 +70,6 @@ router.get('/:id', function(req,res){
 	});
 }); 
 
-//Add Store Route
-router.post('/', function(req, res){
-	var store = req.body; 
-	Store.addStore(store, function(err, store){
-		if(err){
-			res.send(err);
-		}
-		res.json(store);
-	});
-});
 
 
 //Update Store 
@@ -66,5 +98,11 @@ router.delete('/:id', function(id,res){
 	});
 }); 
 
+
+
+
+
 module.exports = router; 
+
+
 

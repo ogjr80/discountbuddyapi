@@ -20,11 +20,9 @@ var storeSchema = mongoose.Schema({
 	slogan: {
 		type: String 
 	}, 
-	loc: {
-		type: {
-			type: String
-		}, 
-		coordinates: []
+	location:{
+		type: [Number], 
+		require: true
 	}, 
 	area: {
 		type: String
@@ -41,10 +39,15 @@ var storeSchema = mongoose.Schema({
 		default: Date.now
 	},
 }); 
-storeSchema.index({loc: '2dsphere'});
+
+
+
+storeSchema.index({location: '2dsphere'});
 
 
 var Store = module.exports = mongoose.model('Store', storeSchema); 
+
+
 
 //Get Stores
 module.exports.getStores = function(callback, limit){
@@ -66,10 +69,7 @@ module.exports.addStore = function(store, callback){
 		logo_url: store.logo_url, 
 		email: store.email, 
 		phone: store.phone, 
-		loc: { 
-			type: "Point",
-			coordinates: [ store.longitude, store.latitude ] 
-		},
+		location: [ store.longitude, store.latitude ],
 		address: {
 			street: store.address.street, 
 			suburb: store.address.suburb,
@@ -92,10 +92,7 @@ module.exports.updateStore = function(id, store, options, callback){
 		logo_url: store.logo_url, 
 		email: store.email, 
 		phone: store.phone, 
-		loc: { 
-			type: "Point",
-			coordinates: [ store.longitude, store.latitude ] 
-		},
+		location: [store.longitude, store.latitude],
 		address: {
 			street: store.address.street, 
 			suburb: store.address.suburb,
@@ -116,47 +113,7 @@ module.exports.removeStore = function(id, callback){
 
 
 
-
-
-//Store schema
 /*
-storename
-company
-logo_url
-email
-phone
-slogan
-loc
-area
-address
- street
- city
- state
- zip
-createdAt
-*/
-
-/*
-db.stores.insert(
-{
-		"store_name": "Game", 
-		"slogan": "You are the difference",
-		"company": "Game", 
-		"logo_url": "http://somelog.com/logo.jpg", 
-		"email": "info@game.co.za", 
-		"phone": "555-5555", 
-	    "loc" : { "type": "Point", "coordinates": [ -25.7831, 28.2752]},
-        "address" : 
-        {
-			"street" : "main road",
-			"suburb": "Midrand",
-			"city": "Johannesburg",
-			"province": "Gauteng", 
-			"postalcode": "1685"
-		}
-	}
-	)
-
 
 db.stores.insert(
 {
@@ -177,7 +134,7 @@ db.stores.insert(
 		}
 	}
 	)
-*/
+
 
 
 
