@@ -1,1 +1,30 @@
-<h3>Add discounts with this page</h3> 
+<h2 class="sub-header">Add Discounts</h2>
+<form ng-submit="addDiscount()" ng-init="getStores()">
+   <div class="form-group">
+    <label>Product Name</label>
+    <input type="text" class="form-control" name="product_name" ng-model="discount.product_name" placeholder="Product Name">
+  </div>
+  <div class="form-group">
+    <label>Store</label>
+    <select class="form-control" ng-model="discount.store_id">
+      <option ng-repeat="store in stores" value="{{store._id}}">
+        {{store.store_name}} {{store.city}} ({{store.company}})
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Was</label>
+    <input type="text" class="form-control" name="was" ng-model="discount.was"placeholder="Was">
+  </div>
+  <div class="form-group">
+    <label>price</label>
+    <input type="text" class="form-control" name="price" ng-model="discount.price"placeholder="Price">
+  </div>
+  <div class="form-group">
+    <label>Desc</label>
+    <input type="text" class="form-control" name="desc" ng-model="discount.desc"placeholder="Description">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+

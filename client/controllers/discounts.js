@@ -18,5 +18,17 @@ dbApp.controller('DiscountsController',['$scope','$http','$location','$routePara
 			console.log($scope.discount); 
 		})
 	}
+
+	$scope.addDiscount = function(){
+		$http.post('/api/discounts/',$scope.discount).success(function(response){
+			window.location.href='/#discounts';
+		});
+	}
+	
+	$scope.getStores = function(){
+		$http.get('/api/stores').success(function(response){
+			$scope.stores = response;
+		});
+	}
 }]); 
 
